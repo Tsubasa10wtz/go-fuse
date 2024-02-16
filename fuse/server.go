@@ -742,6 +742,7 @@ func (ms *Server) handleRequest(req *request) Status {
 		req.status = ENOSYS
 	} else if req.status.Ok() {
 		req.handler.Func(ms, req)
+		fmt.Println(req.filenames)
 	}
 
 	errNo := ms.write(req)
